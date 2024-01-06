@@ -5,6 +5,6 @@ In the application the user will be able to search the service they require and 
 for the nearest medical institution that has the service they looking for.
 
 The application should give real time information to the users for example if one of the medical institution is closed for the day, the medical institution can update that they are closed for the 
-day or fuuly booked.
+day or fully booked.
 
 We planning on adding blockchain to the system.
