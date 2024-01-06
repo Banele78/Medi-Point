@@ -1,0 +1,6 @@
+[12-Dec-2023 13:04:29 UTC] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/tobbco/public_html/tobb.co.za/banele/api.php on line 46
+[12-Dec-2023 13:04:29 UTC] PHP Warning:  file_get_contents(https://www.googleapis.com/customsearch/v1?key=[MY API KEY]&amp;cx=[MY CX KEY]&amp;q=lecture): failed to open stream: no suitable wrapper could be found in /home/tobbco/public_html/tobb.co.za/banele/api.php on line 46
+[12-Dec-2023 13:04:29 UTC] PHP Fatal error:  Uncaught Error: Class 'OpenAI' not found in /home/tobbco/public_html/tobb.co.za/banele/api.php:52
+Stack trace:
+#0 {main}
+  thrown in /home/tobbco/public_html/tobb.co.za/banele/api.php on line 52
