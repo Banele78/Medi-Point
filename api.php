@@ -48,7 +48,7 @@ $resultSer=mysqli_query($conn,$GETSERVICES);
         if (mysqli_num_rows($result) > 0) {
             while ($t = mysqli_fetch_assoc($result)) {
                 $data = array('id'=>$t['id'],'Institution' => $t['instituition'], 'Service' => $t['Services']
-                , 'latitude' => $t['latitude'] , 'longitude' => $t['longnitude']);
+                , 'latitude' => $t['latitude'] , 'longitude' => $t['longnitude'], 'status'=>$t['InstitutionStatus']);
                 $dataArray["data"][] = $data;
                 $services=array('Service'=>$t['Services']);
                 $dataArray["Services"][]=$services;

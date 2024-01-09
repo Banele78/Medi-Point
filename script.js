@@ -131,14 +131,16 @@ function sendSearchRequest(latitude, longitude) {
                 for (let i = 0; i < sortedLocations.length; i++) {
                   // Check if the current location matches the service
                   if (sortedLocations[i].Service === service) {
+                    if(sortedLocations[i].status=='online'){
                     resultDiv.innerHTML += `Hospital:<a href="institution.php?id=${sortedLocations[i].id}"> ${sortedLocations[i].Institution}</a><br> Distance: ${sortedLocations[i].distance.toFixed(
                       2
                     )
                   } km <br>
-                                   Service: ${sortedLocations[i].Service}<br><br>`;
+                                   Service: ${sortedLocations[i].Service}<br> Status:${sortedLocations[i].status} <br><br>`;
                                   
                                 
                                    console.log('Result Div Content:', resultDiv.innerHTML);
+                                  }
                   }
                   // Inside the loop where you calculate distances
 
