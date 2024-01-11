@@ -1,9 +1,5 @@
 <?php
-header('Content-Type: application/json');
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "Medi-point";
+include 'DB_coonect';
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
