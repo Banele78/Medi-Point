@@ -6,31 +6,36 @@
     font-family:'Poppins',sans-serif;
 }
 
+
+
 .book{
     display:flex;
     align-items:center;
     justify-content: center;
-   height: 500px;
-    background:#9B59B6;
+   
+    position: fixed;
+    top: 10%;
+    left: 25%;
+ display: none;
     width: 700px;
-
+    z-index: 999;
+    
 }
 
 .wrapper{
- 
-    background: #fff;
+    border-radius: 20px;
+    background: #f1eeee;
     height: 480px;
 }
 
 .wrapper2{
     height: 480px;
-    background: #fff; 
-   
+    background: #f1eeee;
+    overflow-y: scroll;
+    border-radius: 20px;
 }
 
 .wrapper, .wrapper2 {
-  
-   
     display: inline-block;
     width: 50%; /* Adjust width as needed */
     box-sizing: border-box;
@@ -40,8 +45,15 @@
 .wrapper2 p{
     text-align: center;
     font-size: 23px;
-    margin-top: 30px;
+   
     height: auto;
+    
+}
+
+.time{
+    overflow: hidden;
+    height: 480px;
+    margin-top: 70px;
 }
 
 .time-button{
@@ -54,6 +66,7 @@
     top: 30px;
     background: #fff;
     margin-top: 10px;
+    overflow: hidden;
 
 }
 
@@ -62,9 +75,62 @@
   }
 
   .time-button:hover{
-    background: #f2f2f2;
+    background: #cecaca;
 }
 
+.TimeHeader{
+    position: fixed;
+    background: #f1eeee;
+    top:10%;
+}
+
+.SelectedDayTime{
+   position: fixed;
+   top: 83%;
+   left: 67%;
+   width: 100px;
+   height: 30px;
+}
+
+#PleaseSelectTime{
+    position: fixed;
+    font-size: 25px;
+    left: 41%;
+    color: red;
+}
+
+#SelectedTime{
+    position: fixed;
+    font-size: 21px;
+    left: 65%;
+    top:55%;
+    color: red;
+}
+
+#newClass{
+    font-size: 1px;
+    left: 6%;
+}
+
+#SelectedDate{
+    position: fixed;
+    font-size: 21px;
+    left: 64%;
+    top:50%
+}
+
+.toggle_btn{
+    margin-left: 300px;
+    margin-top: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.toggle_btn:hover{
+    background: #cecaca;
+    border-radius: 20%;
+}
 .wrapper header{
     display:flex;
     align-items: center;
@@ -75,6 +141,7 @@
 header .current-date{
     font-size:1.45rem;
     font-weight: 500;
+    margin-top: 16px;
 
 
 }
@@ -90,10 +157,12 @@ header .icons span{
     line-height: 38px;
     border-radius: 50%;
     background: #f2f2f2;
+    margin-top: 16px;
 }
 header .icons span:hover{
-    background: #f2f2f2;
+    background:#cecaca;
 }
+
 header .icons span:last-child{
     margin-right:-10px;
 
@@ -157,10 +226,127 @@ header .icons span:last-child{
 }
 
 .days li:hover::before{
-    background:#f2f2f2;
+    background:#cecaca;
 }
+
+
 
 .days li.active::before{
     background: #9B59B6;
+}
+
+
+.form{
+    
+    align-items:center;
+    justify-content: center;
+    background: #f1eeee;
+    position: fixed;
+    top: 10%;
+    left: 25%;
+    height: 480px;
+    width: 700px;
+    border-radius: 20px;
+
+}
+
+.formInput{
+    margin-top: 15px;
+    margin-left: 20px;
+    
+}
+
+.formInput:first-child {
+    margin-top: 40px; /* Adjust this value according to your needs */
+}
+
+.formInput input{
+    height: 30px;
+    width: 220px;
+    margin-left: 0; /* Set margin-left to 0 to avoid unnecessary space */
+    display: block; /* Ensure each input is on a new line */
+    margin-bottom: 10px; /* Add some space between input elements */
+    box-sizing: border-box; 
+    border-color: rgb(2, 2, 2);
+}
+
+#ValidName{
+    color: red;
+    font-size: 15px;
+}
+
+#ValidNumber{
+    color: red;
+    font-size: 15px;
+}
+
+#DateTime{
+    height: 30px;
+    width: 220px;
+    font-size: 18px;
+    border-color: rgb(2, 2, 2);
+}
+
+.image{
+    width: 230px;
+    position: fixed;
+    font-size: 21px;
+    left: 54%;
+    top:29%;
+}
+
+#SelectedDate1{
+    position: fixed;
+    font-size: 21px;
+    left: 56%;
+    top:56%;
+}
+
+#SelectedTime1{
+    position: fixed;
+    font-size: 21px;
+    left: 57%;
+    top:61%;
+}
+
+#submit{
+    width:130px;
+    height: 35px;
+    margin-top: 20px;
+    margin-left: 250px;
+    border-radius: 50px;
+    background: #7cb8f0;
+    font-size: 20px;
+}
+
+.ConfirmInfo{
+   display: none;
+    align-items:center;
+    justify-content: center;
+    background: #f1eeee;
+    position: fixed;
+    top: 10%;
+    left: 25%;
+    height: 480px;
+    width: 700px;
+    border-radius: 20px;
+
+}
+
+.ConfirmInfo h1{
+    text-align: center;
+    margin-top: 30px;
+    
+}
+
+.confirm{
+    margin-left:60px;
+    font-size: 20px;
+    margin-top: 10px;
+   
+}
+
+#conName{
+    margin-top: 40px; /* Adjust this value according to your needs */
 }
 
