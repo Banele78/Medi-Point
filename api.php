@@ -1,25 +1,9 @@
 <?php
- 
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "Medi-point";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
-
+include 'DB_connect';
 
 $receivedData = trim($_GET['location']);
 $latitude = trim($_GET["latitude"]);
-  $longitude = trim($_GET["longitude"]);
+$longitude = trim($_GET["longitude"]);
 
 
 if (isset($receivedData)) {
