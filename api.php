@@ -1,5 +1,6 @@
 <?php
-include 'DB_connect';
+include 'DB_connect.php';
+
 
 $receivedData = trim($_GET['location']);
 $latitude = trim($_GET["latitude"]);

@@ -100,7 +100,7 @@ function handleDateClick(day) {
     const  result = document.getElementById('searchresult');
     var queryParams = `?Date=${encodeURIComponent(formatDate(clickedDate))}`;
     
-    var url = 'institutionServer.php';
+    var url = 'getTimeSlot.php';
     const xhr = new XMLHttpRequest();
     xhr.open('GET', url + queryParams, true);
     xhr.onreadystatechange = function () {
@@ -213,117 +213,6 @@ function submitDayTime() {
     }
 }
 
-function addappointment(){
-    const name = document.getElementById('name').value;
-    const surname = document.getElementById('surname').value;
-    const number = document.getElementById('number').value;
-    const email = document.getElementById('email').value;
-    const SelectedDate = document.getElementById('SelectedDate').innerHTML;
-    const name2 = document.getElementById('name');
-    const surname2 = document.getElementById('surname');
-    const number2 = document.getElementById('number');
-    const email2 = document.getElementById('email');
-    const DateTime = document.getElementById('DateTime');
-    
-   
-   
-    const  ValidName = document.getElementById('ValidName');
-    const  ValidSurame= document.getElementById('ValidSurname');
-    const ValidNumber = document.getElementById('ValidNumber');
-    const  ValidEmail = document.getElementById('ValidEmail');
-    const  ValidDate = document.getElementById('ValidDate');
-    const  result = document.getElementById('resultAdd');
-
-    var id = new URLSearchParams(window.location.search).get('id');
-   
-  
-  
-  
-    if(! name){
-       name2.style.borderColor="rgb(170, 23, 23)";
-       ValidName.innerHTML="*Please ensure all fields highlighed in red are filled"
-       
-    }else{
-        name2.style.borderColor = "rgb(2, 2, 2)";
-    }
-  
-    if(! surname){
-        surname2.style.borderColor="rgb(170, 23, 23)";
-        ValidName.innerHTML="*Please ensure all fields highlighed in red are filled"
-    }else{
-        surname2.style.borderColor = "rgb(2, 2, 2)";
-    }
-  
-    if(!number){
-        number2.style.borderColor="rgb(170, 23, 23)";
-        ValidName.innerHTML="*Please ensure all fields highlighed in red are filled"
-    
-    }else{
-        number2.style.borderColor = "rgb(2, 2, 2)";
-       
-    }
-  
-    if(!email){
-        email2.style.borderColor="rgb(170, 23, 23)";
-        ValidName.innerHTML="*Please ensure all fields highlighed in red are filled"
-    
-    }else{
-        email2.style.borderColor = "rgb(2, 2, 2)";
-      
-    }
-  
-    if(selected_Data===null){
-        DateTime.style.borderColor="rgb(170, 23, 23)";
-        ValidName.innerHTML="*Please ensure all fields highlighed in red are filled"
-    
-    }else{
-        DateTime.style.borderColor="rgb(2, 2, 2)";
-      
-    }
-
-    
-
-  
-    if(!name || !surname || !number || !email || selected_Data===null){
-      return;
-    }else{
-      var queryParams = `?name=${encodeURIComponent(name)}
-      &surname=${encodeURIComponent(surname)}
-      &number=${encodeURIComponent(number)}
-      &email=${encodeURIComponent(email)}
-      &date=${encodeURIComponent(SelectedDate)}
-      &time=${encodeURIComponent(selected_Data)}
-      &id=${encodeURIComponent(id)}`;
-      
-      var url = 'addappointment.php';
-      const xhr = new XMLHttpRequest();
-      xhr.open('GET', url + queryParams, true);
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-          if (xhr.status == 200) {
-           
-            try {
-              const responseData = JSON.parse(xhr.responseText);
-              console.log(responseData.Inerror);       // Output: Hi
-              console.log(responseData.inserted);      // Output: []
-              console.log(responseData.gsearch);   // Output: null
-              
-                
-              
-            } catch (error) {
-              console.error('Error parsing JSON:', error);
-            }
-          } else {
-            console.error('Error: ' + xhr.status);
-          }
-        }
-      };
-      xhr.send();
-     
-  
-    }
-  
-  }
 
   function validateSouthAfricanPhoneNumber(phoneNumber) {
     // Define a regular expression for South African phone numbers
@@ -360,14 +249,7 @@ function validateEmail(email) {
     const  ValidName = document.getElementById('ValidName');
     const  ValidNumber = document.getElementById('ValidNumber');
     const ValidEmail = document.getElementById('ValidEmail');
-    const  conName= document.getElementById('conName');
-    const conSurname = document.getElementById('conSurname');
-    const conNumber = document.getElementById('conNumber');
-    const  conEmail = document.getElementById('conEmail');
-    const  conDate = document.getElementById('conDate');
-    const  conTime = document.getElementById('conTime');
-    const form= document.querySelector(".form");
-    const ConfirmInfo= document.querySelector(".ConfirmInfo");
+   
 
     var id = new URLSearchParams(window.location.search).get('id');
    
@@ -435,17 +317,94 @@ function validateEmail(email) {
     if(!name || !surname || !number || !email || selected_Data===null || !validateEmail(email) || !validateSouthAfricanPhoneNumber(number)){
         return;
       }else{
-form.style.display="none";
-ConfirmInfo.style.display="block";
 
-conName.innerHTML=`Name: ${name}`;
-conSurname.innerHTML=`Surname: ${surname}`;
-conNumber.innerHTML=`PhoneNo: ${number}`;
-conEmail.innerHTML=`Email: ${email}`;
-conDate.innerHTML=`Date: ${SelectedDate}`;
-conTime.innerHTML=`Time: ${selected_Data}`;
+
+localStorage.setItem('name', name);
+    localStorage.setItem('surname', surname);
+    localStorage.setItem('number', number);
+    localStorage.setItem('email', email);
+    localStorage.setItem('SelectedDate', SelectedDate);
+    localStorage.setItem('selectedTime', selected_Data);
+    localStorage.setItem('id', id);
+    console.log(id);
+
+    window.location.href = 'confirm.php';
+
       }
 
   }
+
+  function retrieveInputValues() {
+    var name = localStorage.getItem('name');
+    var surname = localStorage.getItem('surname');
+    var number = localStorage.getItem('number');
+    var email = localStorage.getItem('email');
+    var SelectedDate= localStorage.getItem('SelectedDate');
+    var selectedTime = localStorage.getItem('selectedTime');
+    var id = localStorage.getItem('id');
+
+    
+    const  conName= document.getElementById('conName');
+    const conSurname = document.getElementById('conSurname');
+    const conNumber = document.getElementById('conNumber');
+    const  conEmail = document.getElementById('conEmail');
+    const  conDate = document.getElementById('conDate');
+    const  conTime = document.getElementById('conTime');
+
+    conName.innerHTML=`Name: ${name}`;
+    conSurname.innerHTML=`Surname: ${surname}`;
+    conNumber.innerHTML=`PhoneNo: ${number}`;
+    conEmail.innerHTML=`Email: ${email}`;
+    conDate.innerHTML=`Date: ${SelectedDate}`;
+    conTime.innerHTML=`Time: ${selectedTime}`;
+}
+
+
+function addappointment(){
+    var name = localStorage.getItem('name');
+    var surname = localStorage.getItem('surname');
+    var number = localStorage.getItem('number');
+    var email = localStorage.getItem('email');
+    var SelectedDate= localStorage.getItem('SelectedDate');
+    var selectedTime = localStorage.getItem('selectedTime');
+    var id = localStorage.getItem('id');
+
+      var queryParams = `?name=${encodeURIComponent(name)}
+      &surname=${encodeURIComponent(surname)}
+      &number=${encodeURIComponent(number)}
+      &email=${encodeURIComponent(email)}
+      &date=${encodeURIComponent(SelectedDate)}
+      &time=${encodeURIComponent(selectedTime)}
+      &id=${encodeURIComponent(id)}`;
+      
+      var url = 'addappointment.php';
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', url + queryParams, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+           
+            try {
+              const responseData = JSON.parse(xhr.responseText);
+              console.log(responseData.Inerror);       // Output: Hi
+              console.log(responseData.inserted);      // Output: []
+              console.log(responseData.gsearch);   // Output: null
+              
+                
+              
+            } catch (error) {
+              console.error('Error parsing JSON:', error);
+            }
+          } else {
+            console.error('Error: ' + xhr.status);
+          }
+        }
+      };
+      xhr.send();
+     
+  
+    }
+  
+  
 
 

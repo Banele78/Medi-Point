@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="institutionStyle.css">
+    <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@100..700&family=Material+Symbols+Rounded:opsz@20..48&family=Material+Symbols+Rounded:FILL,GRAD@0..1,-50..200">
-<script src="institutionJ.js" defer></script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -107,18 +107,8 @@
 
 </div>
 
-<div class="ConfirmInfo">
-        <h1>Confirm Information</h1>
-       
-        <p id="conName" class="confirm"></p>
-        <p id="conSurname" class="confirm"></p>
-        <p id="conNumber" class="confirm"></p>
-        <p id="conEmail" class="confirm"></p>
-        <p id="conDate" class="confirm"></p>
-        <p id="conTime" class="confirm"></p>
 
-        <button id="submit" onclick="addappointment()">Submit</button>
-    </div>
-    
+    <script src="index.js" defer></script> 
 </body>
+
 </html>

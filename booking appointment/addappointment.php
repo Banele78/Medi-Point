@@ -1,18 +1,5 @@
 <?php
-header('Content-Type: application/json');
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "Medi-point";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+include 'DB_connect.php';
 
 $receivedName=trim($_GET['name']);
 $receivedSurname=trim($_GET['surname']);
@@ -51,6 +38,27 @@ and isset($id)){
      }else{
         $dataArray["inserted"] = "Error inserting hospital: " . $conn->error;
      }
+
+     $get_times = "SELECT number FROM time_slots WHERE appointment_date='$receivedDate' and appointment_time='$receivedTime'";
+$result_time=mysqli_query($conn,$get_times);
+
+if ($result_time) {
+$t = mysqli_fetch_assoc($result_time);
+
+if ($t['number'] > 0) {
+    $add = $t['number'] - 1;
+
+    $Update="UPDATE time_slots SET number= $add WHERE appointment_date='$receivedDate' and appointment_time='$receivedTime'" ;
+    mysqli_query($conn, $Update);
+    
+     "Subtraction successful. New value: $add";
+} else {
+    echo "No records found for the specified date.";
+}
+} else {
+echo "Error: " . mysqli_error($db);
+
+}
 
      echo json_encode($dataArray);
 }else{

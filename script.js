@@ -132,7 +132,7 @@ function sendSearchRequest(latitude, longitude) {
                   // Check if the current location matches the service
                   if (sortedLocations[i].Service === service) {
                     if(sortedLocations[i].status=='online'){
-                    resultDiv.innerHTML += `Hospital:<a href="institution.php?id=${sortedLocations[i].id}"> ${sortedLocations[i].Institution}</a><br> Distance: ${sortedLocations[i].distance.toFixed(
+                    resultDiv.innerHTML += `Hospital:<a href="booking appointment/index.php?id=${sortedLocations[i].id}"> ${sortedLocations[i].Institution}</a><br> Distance: ${sortedLocations[i].distance.toFixed(
                       2
                     )
                   } km <br>

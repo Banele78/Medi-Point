@@ -1,5 +1,5 @@
 <?php
-include 'DB_connect';
+include 'DB_connect.php';
 
 $receivedInstitutionDescription=trim($_GET['Description']);
 $receivedInstitutionServices=trim($_GET['Services']);
