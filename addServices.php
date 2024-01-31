@@ -10,7 +10,7 @@
 <div id="Description"></div>
 <label for="institutionDescription">Service category</label>
 
-         <input type="text" id="ServiceCategory" placeholder="Enter your name/title">
+         <input type="text" id="ServiceCategory" placeholder="Service category">
          <br>
          <div id="Services"></div>
           <label for="institutionServices">Add services in category</label>

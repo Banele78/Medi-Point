@@ -30,6 +30,9 @@
           <label for="institutionServices">Add services</label>
          <input type="text" id="institutionServices" placeholder="Enter your services seperate by comma">
          <br>
+         <label for="catagory">Choose a car:</label>
+
+
          
       <div class="Sector">
          <label for="Sector">Select Sector:</label>
