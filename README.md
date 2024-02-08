@@ -1,3 +1,4 @@
+
 # Medi-Point
 ---
 Medi-point is a web-based system created to aid people in creating medical  appointments and reducing the waiting period for patients who need treatment and/or consultation. 
@@ -68,6 +69,8 @@ of their appointment.
 
 5. ***Real-Time Appointment Updates:***
     - Stay informed with real-time updates on the status of your appointment, providing transparency and reducing uncertainty in the healthcare journey.
+  
+        ![book appointment flowchart](https://github.com/Banele78/Medi-Point/assets/86123848/d835128d-4ded-4084-b294-0648425c800a)
 
 ## Vitual Medical Filing System Medical Personnels
 A secure file management system where medical professionals can store patient records,
@@ -80,3 +83,5 @@ documents if required by their doctor.
 
 2. ***Patient Accessibility:***
     - Grant patients controlled access to their own medical records, fostering transparency and enabling them to view essential documents as needed, under the supervision of their healthcare provider.
+
+    
