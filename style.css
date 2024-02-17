@@ -95,3 +95,23 @@ button {
   }
   
   
+  .form{
+    
+    align-items:center;
+    justify-content: center;
+    background: #f1eeee;
+    position: fixed;
+    top: 10%;
+    left: 25%;
+    height: 480px;
+    width: 700px;
+    border-radius: 20px;
+
+}
+
+#button{
+    width:200px;
+    height:40px;
+     font-size:20px;
+     text-align: center;
+}
